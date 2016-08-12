@@ -1,0 +1,56 @@
+My PC conf:
+
+
+Objective:
+    - Getting started with gihub pages
+
+1. https://pages.github.com/
+2. Decided to use Jekyll
+3. https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
+4. Installing Ruby 2.x.x with virtual environment manager:
+    4.a Installing RVM for environment manager:
+        4.a.0 Tried to use sudo apt-get ruby-rvm but didnt get success, Followed this to purge and remove it: http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395
+        4.a.1 Followed this: https://rvm.io/rvm/install
+        4.a.2 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+        4.a.3 Got an error:
+                gpg: requesting key D39DC0E3 from hkp server keys.gnupg.net
+                gpg: keyserver timed out
+                gpg: keyserver timed out
+                gpg: keyserver receive failed: Keyserver error
+        4.a.4 Got gpg2 instead with sudo apt-get install gnupg2
+        4.a.5 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+        4.a.6 Problem still there
+        4.a.7 http://unix.stackexchange.com/questions/75892/keyserver-timed-out-when-trying-to-add-a-gpg-public-key
+        4.a.8 gpg2 --keyserver hkp://keys.gnupg.net:80 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+        4.a.9 Voila! got the keys
+        4.a.10 \curl -L https://get.rvm.io | bash -s stable --ruby --autolibs=enable --auto-dotfiles
+        4.a.11 Successfully Installed RVM
+    4.b getting started with RVM: https://rvm.io/rvm/basics
+        4.b.0 source /home/ht/.rvm/scripts/rvm
+        4.b.1 source $(rvm <ruby version> do rvm env --path)
+        4.b.2 type rvm | head -1 this should return "rvm is a function"
+        4.b.3 Explore other basics of rvm on your own
+5. Install Bundler:
+    5.1 gem install bundler
+6. Set up git: https://help.github.com/articles/set-up-git/
+7. Initiate local git repo: git init <project-name>
+8. cd <project-name>
+9. Installing jekyll:
+    9.1 create Gemfile and write these lines:
+        source 'https://rubygems.org'
+        gem 'github-pages', group: :jekyll_plugins
+    9.2 "bundle install" will install jekyll and all dependencies
+    
+
+
+
+
+
+
+
+
+
+
+
+Additional links:
+    http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395
